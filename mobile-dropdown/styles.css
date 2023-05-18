@@ -1,0 +1,133 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(239, 242, 247);
+    color: rgb(18, 18, 18);
+    font-family: 'Roboto';
+}
+
+.container {
+    width: 100%;
+    background-color: rgb(226, 226, 226);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    background-color: rgb(71, 157, 127);
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.menu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s ease;
+}
+
+.menu-hamburger {
+    width: 20px;
+    height: 2px;
+    background-color: rgb(246, 246, 246);
+    border-radius: 5px;
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+
+.menu-hamburger::before,
+.menu-hamburger::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: rgb(246, 246, 246);
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.menu-hamburger::before {
+    transform: translateY(-6px);
+}
+
+.menu-hamburger::after {
+    transform: translateY(6px);
+}
+
+.menu-toggle input:checked ~.menu-hamburger {
+    transform: translateX(-50px);
+    background: transparent;
+}
+
+.menu-toggle input:checked ~.menu-hamburger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-toggle input:checked ~.menu-hamburger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.menu-items {
+    /* display: none; */
+    position: absolute;
+    background-color: rgb(71, 157, 127);
+    top: 35px;
+    padding-top: 20px;
+    height: 100%;
+    width: 70%;
+    left: -100%;
+    transition: all 0.5s ease;
+}
+
+.menu-toggle input:checked ~.menu-items {
+    left: 0%;
+}
+
+.menu-toggle input {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(239, 242, 247);
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-type: none;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+li {
+    transition: all 0.2s ease;
+}
+
+.logo {
+    flex: 1;
+    text-align: left;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    padding: 10px;
+    /* color: rgb(239, 242, 247); */
+}
+
+.page-content {
+    height: 100vh;
+    padding: 0 20px;
+}
